@@ -1,0 +1,46 @@
+.input-container {
+   display: flex;
+   justify-content: space-between;
+   width: 95%;
+}
+
+.input-task{
+   padding:10px 10px;
+   flex:1;
+   
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+   border:none;
+
+   border:1px;
+}
+
+.input-task:focus{
+   outline:solid;
+   outline-width: 1px;
+   outline-color: black;
+}
+
+.add-button{
+   padding:10px 10px;
+
+   border:none;
+   border-top-right-radius:15px;
+   border-bottom-right-radius:15px;
+
+   cursor: pointer;
+
+   background-color: rgba(21, 220, 111, 0.529);
+}
+
+.add-button:hover{
+   box-shadow: 0px 1px 2px rgb(126, 122, 122);
+}
+
+.add-button:active{
+   background-color: rgba(21, 220, 111, 0.529);
+}
+
+.add-button img{
+   width:18px;
+}
