@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import {useRef,useState} from 'react';
 import './InputSection.css';
 import PlusIcon from '../assets/plus-solid.svg';
-import ErrorIcon from '../assets/plus-solid-animated.svg';
+import EditIcon from '../assets/edit-icon.svg';
 
 function InputSection({tasks,setTasks}){
    const taskInputRef = useRef(null);
@@ -11,11 +11,11 @@ function InputSection({tasks,setTasks}){
    function AddTask(){
       const taskInputElem = taskInputRef.current;
       if(taskInputElem.value === ''){
-         setButtonIcon(ErrorIcon); // Change to error icon
+         setButtonIcon(EditIcon); // Change to error icon
          setTimeout(() => {
             setButtonIcon(PlusIcon);
             console.log('bruh') // Revert back to plus icon after 2 seconds
-         }, 2000);
+         }, 1500);
          return;
       }
       setTasks([

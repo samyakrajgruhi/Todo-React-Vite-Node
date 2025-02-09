@@ -4,6 +4,7 @@
 
 .no-task{
    margin:16px;
+   color:rgb(99, 87, 87);
 }
 
 .task-container{
@@ -21,7 +22,13 @@
    border-width: 0px;
    border-bottom-width: 1px;
 
-   transition: box-shadow 0.2s;
+   transition: box-shadow 0.2s,transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+.task-container.checked {
+   transform: translateY(20px); 
+   opacity: 0.6; 
 }
 
 .task-container:hover{

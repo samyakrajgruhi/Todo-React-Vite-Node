@@ -36,7 +36,7 @@ function DisplayTask({setTasks, tasks}){
             return (
                <div 
                   key={task.id} 
-                  className="task-container"
+                  className={`task-container ${task.checked ? 'checked' : ''}`}
                >
                   <input 
                      checked={task.checked}
