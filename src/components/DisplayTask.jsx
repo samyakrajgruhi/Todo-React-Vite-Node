@@ -3,7 +3,9 @@ import './DisplayTask.css';
 import editIcon from '../assets/edit-icon.svg';
 import trashIcon from '../assets/trash-can.svg';
 
+
 function DisplayTask({setTasks, tasks}){
+
    if(tasks.length === 0){
       return (
          <div className="no-task">
@@ -11,24 +13,43 @@ function DisplayTask({setTasks, tasks}){
          </div>
       );
    }
+
+   function EditTask(){
+      console.log("Edit Task");
+   }
       
    function DeleteTask(taskId){
       setTasks(tasks.filter(task => task.id !== taskId));
    }
 
+   function toggleChecked(taskId){
+      setTasks(tasks.map( task=>
+         task.id === taskId ? {...task,checked: !task.checked} : task
+      ));
+   }
+   
+   const sortedTasks = [...tasks].sort((a, b) => a.checked - b.checked);
+
    return (
       <div className="task-section">
-         {tasks.map((task)=>{
+         {sortedTasks.map((task)=>{
             return (
                <div 
                   key={task.id} 
                   className="task-container"
                >
-                  <input type="checkbox"/>
-                  <div className="task-title">
+                  <input 
+                     checked={task.checked}
+                     type="checkbox"
+                     onChange={()=> toggleChecked(task.id)}
+                  />
+                  <div className={`task-title ${task.checked ? 'checked' : ''}`}>
                      {task.task} 
                   </div>  
-                  <button className="edit-button general-button">
+                  <button 
+                     className="edit-button general-button"
+                     onClick={EditTask}
+                  >
                      <img src={editIcon}/>
                   </button>
                   <button 

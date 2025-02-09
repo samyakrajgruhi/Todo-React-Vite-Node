@@ -21,7 +21,8 @@ function InputSection({tasks,setTasks}){
       setTasks([
          ...tasks,{
             task:taskInputElem.value,
-            id:crypto.randomUUID()
+            id:crypto.randomUUID(),
+            checked:false
          }
       ]);
       taskInputElem.value = '';
@@ -58,7 +59,7 @@ tasks: PropTypes.arrayOf(
    PropTypes.shape({
       id: PropTypes.number.isRequired,
       task:PropTypes.string.isRequired,
-      dueDate:PropTypes.string.isRequired
+      checked: PropTypes.bool.isRequired
    })
 ).isRequired,
 setTasks: PropTypes.func.isRequired

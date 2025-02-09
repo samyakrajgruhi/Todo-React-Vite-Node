@@ -33,11 +33,21 @@
    flex:1;
 }
 
+.checked{
+   text-decoration:line-through;
+   text-decoration-color: red;
+}
+
 .general-button{
    padding:5px 10px;
    border:none;
    border-radius:15px;
    cursor: pointer;
+   transition: box-shadow 0.3s;
+}
+
+.general-button:hover{
+   box-shadow: 1px 1px 5px rgb(94, 90, 90);
 }
 
 .edit-button{
