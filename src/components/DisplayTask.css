@@ -78,3 +78,18 @@
    width: 13px;
 }
 
+.edit-input{
+   margin: 0px 5px;
+   padding:6px 6px;
+   flex:1;
+   
+   border:none;
+
+   border:1px;
+}
+.edit-input:focus{
+   outline:solid;
+   outline-color:black;
+   outline-width:1px;
+}
+

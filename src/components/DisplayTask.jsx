@@ -1,10 +1,14 @@
+import {useState} from 'react';
 import PropTypes from "prop-types";
 import './DisplayTask.css';
-import editIcon from '../assets/edit-icon.svg';
+import editButton from '../assets/edit-icon.svg';
 import trashIcon from '../assets/trash-can.svg';
+import saveIcon from '../assets/save-icon.svg';
 
 
 function DisplayTask({setTasks, tasks}){
+   const [editingTaskId,setEditingTaskId] = useState('');
+   const [editedTaskText,setEditedTaskText] = useState();
 
    if(tasks.length === 0){
       return (
@@ -14,10 +18,27 @@ function DisplayTask({setTasks, tasks}){
       );
    }
 
-   function EditTask(){
-      console.log("Edit Task");
+   function startEditing(task){
+      setEditingTaskId(task.id);
+      setEditedTaskText(task.task);
    }
-      
+
+   function saveTask(taskId){
+      if (editedTaskText === ''){
+         DeleteTask(taskId);
+      }
+
+      tasks.map((task) => {
+         if(task.id === taskId){
+            task.task = editedTaskText;
+            setEditedTaskText('');
+            setEditingTaskId('');
+         }
+      });
+   }
+
+   
+
    function DeleteTask(taskId){
       setTasks(tasks.filter(task => task.id !== taskId));
    }
@@ -33,6 +54,7 @@ function DisplayTask({setTasks, tasks}){
    return (
       <div className="task-section">
          {sortedTasks.map((task)=>{
+            const isEditing = task.id === editingTaskId;
             return (
                <div 
                   key={task.id} 
@@ -43,20 +65,35 @@ function DisplayTask({setTasks, tasks}){
                      type="checkbox"
                      onChange={()=> toggleChecked(task.id)}
                   />
-                  <div className={`task-title ${task.checked ? 'checked' : ''}`}>
-                     {task.task} 
-                  </div>  
-                  <button 
-                     className="edit-button general-button"
-                     onClick={EditTask}
-                  >
-                     <img src={editIcon}/>
-                  </button>
+                  {isEditing ? (
+                     <input 
+                        type="text" 
+                        value={editedTaskText} 
+                        onChange={(e) => setEditedTaskText(e.target.value)}
+                        className='edit-input' 
+                     />
+                  ) : (
+                     <div 
+                        className={`task-title ${task.checked ? 'checked' : ''}`}
+                     >{task.task}</div>
+                  )}
+                  {isEditing ? (
+                     <button 
+                        onClick={() => saveTask(task.id)} 
+                        className="general-button edit-button"
+
+                     ><img src={saveIcon}/>
+                     </button>
+                  ) : (
+                     <button 
+                        onClick={() => startEditing(task)}
+                        className="general-button edit-button"
+                     ><img src={editButton} /></button>
+                  )}
                   <button 
                      onClick={()=> DeleteTask(task.id)}
                      className="delete-button general-button"
-                  >
-                     <img src={trashIcon}/>
+                  ><img src={trashIcon}/>
                   </button>
                </div>
             );

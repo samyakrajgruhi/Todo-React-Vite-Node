@@ -11,10 +11,10 @@ function InputSection({tasks,setTasks}){
    function AddTask(){
       const taskInputElem = taskInputRef.current;
       if(taskInputElem.value === ''){
-         setButtonIcon(EditIcon); // Change to error icon
+         setButtonIcon(EditIcon);
          setTimeout(() => {
             setButtonIcon(PlusIcon);
-            console.log('bruh') // Revert back to plus icon after 2 seconds
+            console.log('bruh');
          }, 1500);
          return;
       }
