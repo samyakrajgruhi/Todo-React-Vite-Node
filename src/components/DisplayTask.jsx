@@ -4,11 +4,12 @@ import './DisplayTask.css';
 import editButton from '../assets/edit-icon.svg';
 import trashIcon from '../assets/trash-can.svg';
 import saveIcon from '../assets/save-icon.svg';
+import dayjs from 'dayjs';
 
 
 function DisplayTask({setTasks, tasks}){
    const [editingTaskId,setEditingTaskId] = useState('');
-   const [editedTaskText,setEditedTaskText] = useState();
+   const [editedTaskText,setEditedTaskText] = useState('');
 
    if(tasks.length === 0){
       return (
@@ -23,7 +24,14 @@ function DisplayTask({setTasks, tasks}){
       setEditedTaskText(task.task);
    }
 
+   function saveWithEnter(event){
+      if(event.key === 'Enter'){
+         saveTask(editingTaskId);
+      }
+   }
+
    function saveTask(taskId){
+      
       if (editedTaskText === ''){
          DeleteTask(taskId);
       }
@@ -36,8 +44,6 @@ function DisplayTask({setTasks, tasks}){
          }
       });
    }
-
-   
 
    function DeleteTask(taskId){
       setTasks(tasks.filter(task => task.id !== taskId));
@@ -64,6 +70,7 @@ function DisplayTask({setTasks, tasks}){
                      checked={task.checked}
                      type="checkbox"
                      onChange={()=> toggleChecked(task.id)}
+                     
                   />
                   {isEditing ? (
                      <input 
@@ -71,12 +78,16 @@ function DisplayTask({setTasks, tasks}){
                         value={editedTaskText} 
                         onChange={(e) => setEditedTaskText(e.target.value)}
                         className='edit-input' 
+                        onKeyDown={saveWithEnter}
                      />
                   ) : (
                      <div 
                         className={`task-title ${task.checked ? 'checked' : ''}`}
                      >{task.task}</div>
                   )}
+                  <div className='dueDate'>
+                     {dayjs(task.dueDate).format("DD-MMM-YYYY")}
+                  </div>
                   {isEditing ? (
                      <button 
                         onClick={() => saveTask(task.id)} 
@@ -90,6 +101,7 @@ function DisplayTask({setTasks, tasks}){
                         className="general-button edit-button"
                      ><img src={editButton} /></button>
                   )}
+                  
                   <button 
                      onClick={()=> DeleteTask(task.id)}
                      className="delete-button general-button"
@@ -106,8 +118,10 @@ DisplayTask.propTypes = {
    setTasks: PropTypes.func.isRequired,
    tasks: PropTypes.arrayOf(
      PropTypes.shape({
-       id: PropTypes.number.isRequired,
-       task: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      task: PropTypes.string.isRequired,
+      dueDate: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired
      })
    ).isRequired,
 };

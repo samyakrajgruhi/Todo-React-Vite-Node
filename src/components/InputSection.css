@@ -5,7 +5,7 @@
 }
 
 .input-task{
-   padding:10px 10px;
+   padding:5px 10px;               
    flex:1;
    
    border-top-left-radius: 15px;
@@ -16,13 +16,25 @@
 }
 
 .input-task:focus{
+   outline:inset;
+   outline-width: 1px;
+   outline-color: black;
+}
+
+.input-date{
+   padding:5px 10px;               
+   border:none;
+   border:1px;
+}
+
+.input-date:focus{
    outline:solid;
    outline-width: 1px;
    outline-color: black;
 }
 
 .add-button{
-   padding:10px 10px;
+   padding:5px 10px;
 
    border:none;
    border-top-right-radius:15px;

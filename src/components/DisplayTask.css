@@ -40,6 +40,10 @@
    flex:1;
 }
 
+.dueDate{
+   margin: 0px 5px;
+}
+
 .checked{
    text-decoration:line-through;
    text-decoration-color: red;
