@@ -55,8 +55,9 @@ function DisplayTask({setTasks, tasks}){
       ));
    }
    
-   const sortedTasks = [...tasks].sort((a, b) => a.checked - b.checked);
-
+   const sortedTasks = [...tasks]
+   .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+   .sort((a, b) => a.checked - b.checked);
    return (
       <div className="task-section">
          {sortedTasks.map((task)=>{

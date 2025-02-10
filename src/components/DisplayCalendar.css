@@ -1,0 +1,9 @@
+.checked{
+   text-decoration:line-through;
+   text-decoration-color: red;
+}
+
+.task-title{
+   margin: 0px 5px;
+   flex:1;
+}
