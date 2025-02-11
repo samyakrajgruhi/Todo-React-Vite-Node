@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import "react-calendar/dist/Calendar.css";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import './DisplayTask.css';
+import './DisplayCalendar.css';
 
 
 export default function DisplayCalendar({tasks}){
@@ -40,9 +40,9 @@ export default function DisplayCalendar({tasks}){
       <Calendar onChange={handleDateChange} value={selectedDate} tileContent={getTileContent} />
       <div style={{ marginTop: '20px' }}>
         <h2>Tasks for {dayjs(selectedDate).format("MMMM D, YYYY")}</h2>
-        <ul>
+        <ul className="list-container">
           {tasksForSelectedDate.map(task => (
-            <li key={task.id} className= {`task-title ${task.checked ? 'checked' : ''}`}>
+            <li key={task.id} className= {`task-title-list ${task.checked ? 'checked' : ''}`}>
               {task.task}
             </li>
           ))}

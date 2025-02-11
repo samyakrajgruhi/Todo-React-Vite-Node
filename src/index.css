@@ -1,10 +1,12 @@
 body{
    padding-top:70px;
-   padding-bottom: 40px;
    font-family: "Josefin Sans", serif;
 
-   width:80%;
-   margin:auto;
+
+   margin-left:auto;
+   margin-right:auto;
+   
+   background-color: rgb(223, 229, 236);
 
 }
 
@@ -20,7 +22,7 @@ body{
 
    justify-content: center;
    align-items: center;
-   box-shadow: 1px 1px 5px rgb(212, 212, 212);
+   box-shadow: 1px 1px 5px rgb(204, 203, 203);
 
    background-color: white;
 
@@ -41,9 +43,25 @@ body{
    width:30px;
 }
 
+
+.credit-foot{
+   position:fixed;
+   bottom:0;
+   right:0;
+   left:0;
+   height: 20px;
+
+   background-color: rgb(86, 86, 86);
+   color: aliceblue;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .root{
    display:flex;
    flex-direction: row;
    justify-content: center;
    column-gap:20px;
 }
+

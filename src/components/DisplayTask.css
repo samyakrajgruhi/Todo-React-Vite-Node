@@ -36,8 +36,12 @@
 }
 
 .task-title{
+   max-width:490px;
    margin: 0px 5px;
    flex:1;
+
+   overflow-wrap: break-word;
+   
 }
 
 .dueDate{

@@ -3,7 +3,15 @@
    text-decoration-color: red;
 }
 
-.task-title{
-   margin: 0px 5px;
-   flex:1;
+.list-container{
+   height: 180px;
+   overflow:scroll;
+   overflow-x: hidden;
+   scrollbar-width:thin ;
+}
+
+.task-title-list{
+   width: 275px;
+   overflow-wrap:break-word;
+   margin-top:5px;
 }
