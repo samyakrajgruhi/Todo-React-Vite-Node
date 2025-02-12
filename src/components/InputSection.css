@@ -58,3 +58,9 @@
 .add-button img{
    width:18px;
 }
+
+@media (max-width:1160px) {
+   .input-task{
+      font-size:25px;
+   }
+}

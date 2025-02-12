@@ -36,7 +36,7 @@ export default function DisplayCalendar({tasks}){
    console.log("Tasks for Selected Date:", tasksForSelectedDate);
 
    return (
-      <div>
+      <div className="mobile-view">
       <Calendar onChange={handleDateChange} value={selectedDate} tileContent={getTileContent} />
       <div style={{ marginTop: '20px' }}>
         <h2>Tasks for {dayjs(selectedDate).format("MMMM D, YYYY")}</h2>

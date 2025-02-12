@@ -29,5 +29,6 @@
 @media (max-width:1160px) {
    .main-container{
       max-height: 60vh;
+      font-size:25px;
    }
 }

@@ -9,11 +9,22 @@
    overflow-x: hidden;
    scrollbar-width:thin ;
    scroll-behavior: smooth;
-   
+
 }
 
 .task-title-list{
    width: 275px;
    overflow-wrap:break-word;
    margin-top:5px;
+}
+
+@media (max-width:1160px) {
+   .mobile-view{
+      display:flex;
+
+      align-items:baseline;
+      column-gap: 20px;
+
+      font-size:22px;
+   }
 }
