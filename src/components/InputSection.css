@@ -58,3 +58,15 @@
 .add-button img{
    width:18px;
 }
+
+@media (max-width:1160px) {
+   .input-task{
+      font-size:25px;
+      padding: 15px 20px;
+   }
+
+   .input-date{
+      font-size:25px;
+      max-width: 220px;
+   }
+}
