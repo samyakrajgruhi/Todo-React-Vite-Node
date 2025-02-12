@@ -62,11 +62,14 @@
 @media (max-width:1160px) {
    .input-task{
       font-size:25px;
+<<<<<<< HEAD
       padding: 15px 20px;
    }
 
    .input-date{
       font-size:25px;
       max-width: 220px;
+=======
+>>>>>>> afc246718ba054a39d0eaab64c743cd24eae1f8d
    }
 }
