@@ -1,5 +1,6 @@
 .task-section{
    width: 95%;
+   
 }
 
 .no-task{
@@ -36,7 +37,7 @@
 }
 
 .task-title{
-   max-width:490px;
+   max-width:484.5px;
    margin: 0px 5px;
    flex:1;
 
@@ -46,6 +47,7 @@
 
 .dueDate{
    margin: 0px 5px;
+   width:86px;
 }
 
 .checked{
